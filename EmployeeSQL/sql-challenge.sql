@@ -47,3 +47,13 @@ CREATE TABLE Salaries (
     salary INT 
 );
 
+--Data Analysis
+
+--List the employee number, last name, first name, sex, and salary of each employee.
+
+SELECT e.emp_no as employee_number, e.last_name as last_name, e.first_name as first_name, e.sex as sex, s.salary as salary
+	FROM employees as e 
+	JOIN salaries as s
+	ON (e.emp_no = s.emp_no)
+	
+;
