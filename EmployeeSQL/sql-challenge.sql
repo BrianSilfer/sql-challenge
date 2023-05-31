@@ -57,3 +57,23 @@ SELECT e.emp_no as employee_number, e.last_name as last_name, e.first_name as fi
 	ON (e.emp_no = s.emp_no)
 	
 ;
+
+
+--List the first name, last name, and hire date for the 
+--employees who were hired in 1986.
+
+SELECT first_name, last_name, hire_date 
+FROM employees
+WHERE TO_CHAR(hire_date, 'YYYY-MM-DD') LIKE '1986%'
+;
+
+--List the manager of each department along with their department number, 
+--department name, employee number, last name, and first name.
+
+SELECT m.emp_no as employee_number, d.dept_name as department_name,  e.last_name as last_name, e.first_name as first_name
+	FROM employees as e 
+	JOIN dep_manager as m
+	ON (e.emp_no = m.emp_no)
+		JOIN departments as d
+		ON (d.dept_no = m.dept_no)
+;
